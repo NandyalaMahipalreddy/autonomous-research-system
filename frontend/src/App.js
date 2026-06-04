@@ -15,6 +15,8 @@ import {
   CartesianGrid
 } from "recharts";
 
+const API_URL = "https://autonomous-research-system-47qs.onrender.com";
+
 function App() {
   const [query, setQuery] = useState("");
   const [report, setReport] = useState("");
@@ -63,9 +65,7 @@ const COLORS = [
 
   const loadHistory = async () => {
   try {
-    const response = await fetch(
-      "http://127.0.0.1:8000/history"
-    );
+    const response = await fetch(`${API_URL}/history`);
 
     const data = await response.json();
 
@@ -80,9 +80,7 @@ const loadReport = async (id) => {
 
   try {
 
-    const response = await fetch(
-      `http://127.0.0.1:8000/history/${id}`
-    );
+    const response = await fetch(`${API_URL}/history/${id}`);
 
     const data = await response.json();
 
@@ -99,8 +97,7 @@ const deleteHistory = async (id) => {
 
   try {
 
-    await fetch(
-      `http://127.0.0.1:8000/history/${id}`,
+    await fetch(`${API_URL}/history/${id}`,
       {
         method: "DELETE"
       }
@@ -147,7 +144,7 @@ useEffect(() => {
       }
 
       const response = await fetch(
-        "http://127.0.0.1:8000/research",
+  `${API_URL}/research`,
         {
           method: "POST",
           body: formData,
@@ -724,7 +721,7 @@ await loadHistory();
 
             {pdfFile && (
               <a
-                href={`http://127.0.0.1:8000/${pdfFile}`}
+              href={`${API_URL}/${pdfFile}`}
                 target="_blank"
                 rel="noreferrer"
                 style={{
