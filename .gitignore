@@ -1,0 +1,14 @@
+venv/
+frontend/node_modules/
+node_modules/
+
+__pycache__/
+*.pyc
+
+.env
+
+reports/
+documents/
+
+research_history.db
+*.db
