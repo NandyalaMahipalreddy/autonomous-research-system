@@ -23,7 +23,7 @@ def ask_llama(prompt):
                 }
             ],
             temperature=0.3,
-            max_tokens=4000
+            max_tokens=3000
         )
 
         return response.choices[0].message.content

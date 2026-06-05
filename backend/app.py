@@ -1,3 +1,4 @@
+from typing import Optional
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -59,13 +60,13 @@ async def research(
     max_iterations: int = Form(5),
     cost_limit: int = Form(2),
     output_format: str = Form("PDF"),
-    file: UploadFile = File(None)
+    file: Optional[UploadFile] = File(None)
 ):
 
     document_path = None
 
     # Save uploaded file
-    if file:
+    if file and file.filename:
 
         document_path = f"documents/{file.filename}"
 

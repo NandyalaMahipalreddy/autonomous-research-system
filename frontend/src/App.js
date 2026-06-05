@@ -175,8 +175,7 @@ setEstimatedCost(data.estimated_cost);
 
 setBudgetLimit(data.budget_limit);
 
-await loadHistory();
-      await loadHistory();
+    await loadHistory();
 
     } catch (error) {
       console.error(error);

@@ -58,7 +58,7 @@ def web_research_agent(state):
         response = client.search(
             query=query,
             search_depth="advanced",
-            max_results=15
+            max_results=10
         )
 
         state["search_count"] = state.get("search_count", 0) + 1
