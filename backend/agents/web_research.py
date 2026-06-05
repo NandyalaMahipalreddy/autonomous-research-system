@@ -10,7 +10,7 @@ api_key = os.getenv("TAVILY_API_KEY")
 
 def clean_text(text):
     text = re.sub(r"\s+", " ", text)
-    return text[:300].strip()
+    return text[:5000].strip()
 
 
 def web_research_agent(state):
@@ -58,7 +58,7 @@ def web_research_agent(state):
         response = client.search(
             query=query,
             search_depth="advanced",
-            max_results=5
+            max_results=15
         )
 
         state["search_count"] = state.get("search_count", 0) + 1

@@ -13,17 +13,35 @@ def formatter_agent(state):
     findings_text = "\n".join(findings[:5])
 
     prompt = f"""
-Write a professional research report about:
+Generate a VERY DETAILED research report.
 
-Topic: {query}
+Topic:
+{query}
 
-Based on these findings:
-{findings_text}
+Research Findings:
+{findings}
 
-Include:
-1. Summary
-2. Key insights
-3. Final conclusion
+Requirements:
+
+- Minimum 4000 words
+- Executive Summary
+- Introduction
+- Background
+- Detailed Analysis
+- Key Findings
+- Technical Analysis
+- Industry Impact
+- Advantages
+- Disadvantages
+- Challenges
+- Future Scope
+- Case Studies
+- Contradictions
+- Source Analysis
+- Conclusion
+
+Do not summarize briefly.
+Expand every section with detailed explanations.
 """
 
     try:
